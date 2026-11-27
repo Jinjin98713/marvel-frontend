@@ -1,0 +1,212 @@
+/* Page personnage : prototype, sans données inventées */
+.character-detail-page {
+  min-height: 100vh;
+  background: #090a0d;
+  color: #f5f5f5;
+  animation: detail-appear 0.55s ease-out both;
+}
+
+.character-detail-container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.character-detail-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.character-detail-hero {
+  position: relative;
+  min-height: 70vh;
+  padding: 40px 0 70px;
+  isolation: isolate;
+  overflow: hidden;
+  background: #101015;
+}
+
+.character-detail-background {
+  position: absolute;
+  inset: -10%;
+  z-index: -2;
+  background-position: center 30%;
+  background-size: cover;
+  filter: blur(35px) brightness(0.26) saturate(1.4);
+  transform: scale(1.1);
+}
+
+.character-detail-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(9, 10, 13, 0.2), rgba(9, 10, 13, 0.55)),
+    linear-gradient(0deg, #090a0d, transparent 65%);
+}
+
+.character-detail-back {
+  display: inline-block;
+  margin-bottom: 48px;
+  color: #e0dfe4;
+  font-size: 14px;
+}
+
+.character-detail-back:hover {
+  color: #ed1d24;
+}
+
+.character-detail-main {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 90px);
+  align-items: center;
+}
+
+.character-detail-portrait {
+  display: block;
+  width: 100%;
+  border: 1px solid #7b242d;
+  border-radius: 12px;
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(237, 29, 36, 0.16);
+}
+
+.character-detail-kicker {
+  margin: 0 0 16px;
+  color: #ed1d24;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.character-detail-text h1,
+.character-detail-comics h2 {
+  margin: 0 0 20px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-style: italic;
+  font-size: clamp(44px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.character-detail-text > p:not(.character-detail-kicker) {
+  max-width: 700px;
+  color: #d3d0d5;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.character-detail-comics-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  margin-top: 0;
+  padding: 0 20px;
+  background: #ed1d24;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.character-detail-comics-link:hover {
+  background: #b9151b;
+}
+
+.character-detail-comics {
+  padding: 65px 0 100px;
+  scroll-margin-top: 20px;
+}
+
+.character-detail-comics h2 {
+  font-size: 52px;
+}
+
+.character-detail-comics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.character-detail-comic {
+  overflow: hidden;
+  background: #15161a;
+  border: 1px solid #303036;
+  border-radius: 10px;
+}
+
+.character-detail-comic img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.character-detail-comic-info {
+  padding: 16px;
+}
+.character-detail-comic-info h3 {
+  margin: 0 0 12px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.character-detail-comic-info p {
+  margin: 0;
+  color: #a9abb3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.character-detail-empty {
+  color: #a9abb3;
+}
+.detail-message {
+  min-height: 60vh;
+  padding: 100px 25px;
+  text-align: center;
+}
+.detail-message a {
+  color: #ed1d24;
+}
+
+@keyframes detail-appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .character-detail-main {
+    grid-template-columns: 1fr;
+  }
+  .character-detail-portrait {
+    max-width: 280px;
+  }
+  .character-detail-comics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .character-detail-hero {
+    padding-bottom: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-detail-page {
+    animation: none;
+  }
+}

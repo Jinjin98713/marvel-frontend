@@ -1,0 +1,65 @@
+.favorite-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.favorite-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 20px;
+  background-color: #1b1d23;
+  color: #ffffff;
+  border: 1px solid #ed1d24;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.favorite-button svg {
+  color: #ed1d24;
+  font-size: 17px;
+}
+
+.favorite-button:hover:not(:disabled) {
+  background-color: #35171b;
+  transform: translateY(-2px);
+}
+
+.favorite-button.active {
+  background-color: #72171e;
+}
+
+.favorite-button.active svg {
+  color: #ffffff;
+}
+
+.favorite-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.favorite-button-error {
+  margin: 0;
+  color: #ff6868;
+  font-size: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .favorite-button {
+    transition: none;
+  }
+
+  .favorite-button:hover {
+    transform: none;
+  }
+}

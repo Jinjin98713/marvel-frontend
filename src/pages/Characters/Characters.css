@@ -174,6 +174,62 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* ==================================
+   FAVORIS SUR LES CARTES
+================================== */
+
+.character-favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  background-color: rgba(15, 16, 20, 0.85);
+  color: #ed1d24;
+
+  border: 1px solid rgba(237, 29, 36, 0.7);
+  border-radius: 50%;
+
+  font-size: 19px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.character-favorite-button:hover:not(:disabled) {
+  background-color: #35171b;
+  transform: scale(1.1);
+}
+
+.character-favorite-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.character-favorite-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-favorite-button {
+    transition: none;
+  }
+
+  .character-favorite-button:hover {
+    transform: none;
+  }
+}
+
 .character-image {
   width: 100%;
   aspect-ratio: 2 / 3;
@@ -507,4 +563,126 @@
 .pagination span {
   color: #ffffff;
   font-size: 14px;
+}
+
+/* TEST : rendre l'ensemble de la carte cliquable */
+.character-card-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.character-card-link:focus-visible {
+  outline: 2px solid #ed1d24;
+  outline-offset: -3px;
+}
+
+/* TEST : caméra qui entre dans l'image au clic */
+.portal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  overflow: hidden;
+  background: #090a0d;
+  animation: portal-background 0.7s ease-out both;
+}
+
+.portal-overlay-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    circle,
+    transparent 20%,
+    rgba(237, 29, 36, 0.32) 100%
+  );
+  animation: portal-flash 0.7s ease-in both;
+}
+
+.portal-overlay-image {
+  position: fixed;
+  left: var(--portal-left);
+  top: var(--portal-top);
+  width: var(--portal-width);
+  height: var(--portal-height);
+  object-fit: cover;
+  animation: portal-zoom 0.7s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
+}
+
+.portal-overlay-label {
+  position: absolute;
+  bottom: 8%;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(20px, 4vw, 45px);
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 0 2px 20px black;
+  animation: portal-label 0.7s ease-in both;
+}
+
+@keyframes portal-background {
+  from {
+    background: transparent;
+  }
+  to {
+    background: #090a0d;
+  }
+}
+
+@keyframes portal-zoom {
+  0% {
+    filter: brightness(1);
+  }
+  70% {
+    filter: brightness(0.9) saturate(1.3);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    filter: brightness(0.35) blur(2px);
+  }
+}
+
+@keyframes portal-flash {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes portal-label {
+  0%,
+  35% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  80%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-overlay,
+  .portal-overlay-image,
+  .portal-overlay-glow,
+  .portal-overlay-label {
+    animation-duration: 0.01ms;
+  }
 }

@@ -22,6 +22,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .header-logo img {
@@ -36,10 +38,14 @@
   white-space: nowrap;
 }
 
+/* ==================================
+   NAVIGATION
+================================== */
+
 .header-nav {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 5px;
 }
 
@@ -54,12 +60,14 @@
   color: #c5c6cb;
   font-size: 11px;
   text-align: center;
+  text-decoration: none;
   transition:
     color 0.2s,
     background-color 0.2s;
 }
 
 .header-link svg {
+  flex-shrink: 0;
   font-size: 19px;
 }
 
@@ -71,7 +79,7 @@
 /* Navigation active */
 
 .header-link.active {
-  color: #ffffff;
+  color: #ed1d24;
   background-color: transparent;
   border-bottom: 2px solid #ed1d24;
 }
@@ -85,7 +93,40 @@
   outline-offset: 2px;
 }
 
-/* TABLETTE - 768px et plus */
+/* ==================================
+   UTILISATEUR CONNECTÉ
+================================== */
+
+.header-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.header-username {
+  max-width: 150px;
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-status-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #35bd78;
+}
+
+/* ==================================
+   TABLETTE - 768px et plus
+================================== */
+
 @media (min-width: 768px) {
   .header-container {
     flex-direction: row;
@@ -96,21 +137,31 @@
   .header-nav {
     width: auto;
     display: flex;
+    align-items: center;
     gap: 25px;
   }
 
   .header-link {
-    min-height: auto;
+    min-height: 45px;
     flex-direction: row;
+    gap: 8px;
+    padding: 8px 2px;
     font-size: 13px;
   }
 
   .header-link svg {
     font-size: 17px;
   }
+
+  .header-status {
+    justify-content: flex-start;
+  }
 }
 
-/* DESKTOP - 1100px et plus */
+/* ==================================
+   DESKTOP - 1100px et plus
+================================== */
+
 @media (min-width: 1100px) {
   .header-container {
     padding: 20px 45px;
@@ -121,7 +172,10 @@
   }
 }
 
-/* REDUCTION DES ANIMATIONS */
+/* ==================================
+   RÉDUCTION DES ANIMATIONS
+================================== */
+
 @media (prefers-reduced-motion: reduce) {
   .header-link {
     transition: none;
