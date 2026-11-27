@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,7 +54,11 @@ const Login = () => {
         <p className="login-intro">
           Connecte-toi pour retrouver ton univers Marvel.
         </p>
-
+        {location.state?.fromFavorite && (
+          <p className="login-favorite-message">
+            ❤️ Connecte-toi pour ajouter ce favori à ton univers Marvel.
+          </p>
+        )}
         <form onSubmit={handleSubmit} className="login-form">
           <label htmlFor="email">Adresse email</label>
           <input
@@ -78,7 +83,14 @@ const Login = () => {
           {errorMessage && <p className="login-error">{errorMessage}</p>}
 
           <button type="submit" disabled={isLoading}>
-            {isLoading ? "Connexion..." : "Se connecter"}
+            {isLoading ? (
+              <span className="login-button-loading">
+                <span className="login-spinner" aria-hidden="true"></span>
+                Connexion à l'univers Marvel...
+              </span>
+            ) : (
+              "Se connecter"
+            )}
           </button>
         </form>
 

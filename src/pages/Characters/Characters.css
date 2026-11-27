@@ -528,43 +528,6 @@
   }
 }
 
-/* ==================================
-   PAGINATION
-================================== */
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.pagination button {
-  padding: 12px 20px;
-  background-color: #ed1d24;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: "Inter", sans-serif;
-}
-
-.pagination button:hover:not(:disabled) {
-  background-color: #b9151b;
-}
-
-.pagination button:disabled {
-  background-color: #303036;
-  color: #777777;
-  cursor: not-allowed;
-}
-
-.pagination span {
-  color: #ffffff;
-  font-size: 14px;
-}
-
 /* TEST : rendre l'ensemble de la carte cliquable */
 .character-card-link {
   display: block;

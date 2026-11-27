@@ -1,0 +1,632 @@
+/* ==================================
+   DOCTOR DOOM - INTRO CINÉMATIQUE
+================================== */
+
+.doom-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: #030705;
+  color: #ffffff;
+
+  animation: doom-intro-appear 1s ease-out both;
+}
+
+/* ==================================
+   AMBIANCE
+================================== */
+
+.doom-intro-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 27% 48%,
+      rgba(38, 135, 62, 0.3),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 85% 70%,
+      rgba(13, 69, 29, 0.22),
+      transparent 50%
+    ),
+    linear-gradient(120deg, #020503, #0b130e 55%, #030705);
+}
+
+.doom-intro-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  opacity: 0.25;
+
+  background-image:
+    linear-gradient(rgba(100, 210, 125, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 210, 125, 0.07) 1px, transparent 1px);
+
+  background-size: 65px 65px;
+}
+
+.doom-intro-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+
+  opacity: 0.13;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(0, 0, 0, 0.9) 4px,
+    transparent 5px
+  );
+}
+
+/* ==================================
+   BARRE SUPÉRIEURE
+================================== */
+
+.doom-intro-top {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 28px 45px;
+}
+
+.doom-intro-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #8be6a2;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.doom-intro-alert svg {
+  color: #a4f5b5;
+  font-size: 18px;
+}
+
+.doom-intro-skip {
+  padding: 12px 17px;
+
+  background: rgba(15, 25, 18, 0.8);
+  color: #c9d6cd;
+
+  border: 1px solid #416249;
+  border-radius: 6px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.doom-intro-skip:hover {
+  background: #1c3c25;
+  color: #ffffff;
+}
+
+/* ==================================
+   COMPOSITION PRINCIPALE
+================================== */
+
+.doom-intro-content {
+  position: relative;
+  z-index: 6;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(30px, 5vw, 100px);
+
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  padding: 30px 60px 60px;
+}
+
+/* ==================================
+   PORTRAIT DE DOOM
+================================== */
+
+.doom-intro-character {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 500px;
+}
+
+.doom-intro-character-glow {
+  position: absolute;
+
+  width: 85%;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(126, 234, 149, 0.15);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(54, 158, 78, 0.3),
+    rgba(20, 77, 35, 0.08) 55%,
+    transparent 70%
+  );
+
+  box-shadow: 0 0 100px rgba(34, 113, 52, 0.15);
+
+  animation: doom-glow 4s ease-in-out infinite;
+}
+
+.doom-intro-portrait {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+  width: min(100%, 410px);
+  max-height: 62vh;
+  object-fit: cover;
+  aspect-ratio: 2 / 3;
+
+  border: 1px solid rgba(140, 238, 158, 0.25);
+  border-radius: 8px;
+
+  box-shadow:
+    0 0 85px rgba(33, 134, 54, 0.25),
+    0 35px 100px rgba(0, 0, 0, 0.7);
+
+  filter: saturate(0.75) contrast(1.15);
+
+  animation: doom-character-appear 1.7s ease-out both;
+}
+
+.doom-intro-silhouette {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(100%, 410px);
+  aspect-ratio: 2 / 3;
+
+  background:
+    radial-gradient(circle at 50% 40%, rgba(59, 157, 77, 0.2), transparent 50%),
+    #0b140e;
+
+  border: 1px solid #36593e;
+  border-radius: 8px;
+
+  box-shadow: 0 0 60px rgba(35, 120, 53, 0.2);
+}
+
+.doom-intro-silhouette span {
+  color: #80e69a;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(80px, 12vw, 160px);
+  font-weight: 900;
+  font-style: italic;
+
+  opacity: 0.4;
+}
+
+.doom-intro-character-name {
+  position: absolute;
+  z-index: 3;
+  bottom: -5px;
+
+  color: #8bb997;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+/* ==================================
+   MESSAGE
+================================== */
+
+.doom-intro-message {
+  animation: doom-message-appear 1.1s ease-out 0.4s both;
+}
+
+.doom-intro-signal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0 0 20px;
+
+  color: #85e59b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.doom-intro-chapter {
+  margin: 0 0 15px;
+
+  color: #829588;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.doom-intro-message h1 {
+  margin: 0;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(70px, 8.5vw, 145px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.doom-intro-message h1 span {
+  display: block;
+  color: #83df99;
+}
+
+.doom-intro-divider {
+  width: 70px;
+  height: 3px;
+  margin: 32px 0;
+  background: #83df99;
+}
+
+.doom-intro-quote {
+  margin: 0 0 22px;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(27px, 3vw, 46px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.doom-intro-description {
+  max-width: 520px;
+  margin: 0 0 32px;
+
+  color: #b6c8bc;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ==================================
+   ACTIONS
+================================== */
+
+.doom-intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.doom-intro-primary,
+.doom-intro-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 50px;
+  padding: 14px 22px;
+
+  border-radius: 7px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.doom-intro-primary {
+  background: #ed1d24;
+  border: 1px solid #ed1d24;
+  color: #ffffff;
+}
+
+.doom-intro-primary:hover:not(:disabled) {
+  background: #b9151b;
+  transform: translateY(-2px);
+}
+
+.doom-intro-secondary {
+  background: rgba(16, 29, 20, 0.8);
+  border: 1px solid #4c7155;
+  color: #ffffff;
+}
+
+.doom-intro-secondary:hover:not(:disabled) {
+  background: #1c3c25;
+  transform: translateY(-2px);
+}
+
+.doom-intro button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.doom-intro button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ==================================
+   PIED DE TRANSMISSION
+================================== */
+
+.doom-intro-footer {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 20px 45px;
+
+  border-top: 1px solid rgba(95, 160, 111, 0.13);
+
+  color: #789483;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ==================================
+   ANIMATIONS
+================================== */
+
+@keyframes doom-intro-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes doom-character-appear {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(1.05);
+    filter: brightness(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: brightness(0.85);
+  }
+}
+
+@keyframes doom-message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes doom-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Transition entre Doom et la Home */
+.doom-intro-exit {
+  pointer-events: none;
+  animation: doom-intro-leave 0.65s ease-in forwards;
+}
+
+@keyframes doom-intro-leave {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.04);
+    filter: brightness(1.6);
+  }
+}
+
+/* ==================================
+   RESPONSIVE
+================================== */
+
+@media (max-width: 900px) {
+  .doom-intro-content {
+    gap: 25px;
+    padding: 20px 30px 50px;
+  }
+
+  .doom-intro-character {
+    min-height: 350px;
+  }
+
+  .doom-intro-message h1 {
+    font-size: clamp(55px, 9vw, 85px);
+  }
+}
+
+@media (max-width: 767px) {
+  .doom-intro-top {
+    padding: 20px;
+  }
+
+  .doom-intro-alert {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .doom-intro-skip {
+    font-size: 10px;
+    padding: 10px;
+  }
+
+  .doom-intro-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px 20px 50px;
+  }
+
+  .doom-intro-character {
+    min-height: 250px;
+  }
+
+  .doom-intro-character-glow {
+    width: 260px;
+  }
+
+  .doom-intro-portrait {
+    width: 180px;
+    max-height: 270px;
+  }
+
+  .doom-intro-silhouette {
+    width: 180px;
+  }
+
+  .doom-intro-silhouette span {
+    font-size: 75px;
+  }
+
+  .doom-intro-character-name {
+    bottom: -8px;
+  }
+
+  .doom-intro-message {
+    text-align: center;
+  }
+
+  .doom-intro-signal {
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .doom-intro-message h1 {
+    font-size: clamp(60px, 13vw, 100px);
+  }
+
+  .doom-intro-divider {
+    margin: 25px auto;
+  }
+
+  .doom-intro-quote {
+    font-size: 30px;
+  }
+
+  .doom-intro-description {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .doom-intro-actions {
+    justify-content: center;
+  }
+
+  .doom-intro-footer {
+    padding: 15px 20px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doom-intro-actions {
+    flex-direction: column;
+  }
+
+  .doom-intro-primary,
+  .doom-intro-secondary {
+    width: 100%;
+  }
+
+  .doom-intro-message h1 {
+    font-size: clamp(54px, 14vw, 70px);
+  }
+
+  .doom-intro-character {
+    min-height: 210px;
+  }
+
+  .doom-intro-portrait {
+    width: 145px;
+    max-height: 220px;
+  }
+
+  .doom-intro-character-name {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .doom-intro-footer span:last-child {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doom-intro,
+  .doom-intro-message,
+  .doom-intro-portrait,
+  .doom-intro-character-glow {
+    animation: none;
+  }
+
+  .doom-intro-primary,
+  .doom-intro-secondary {
+    transition: none;
+  }
+
+  .doom-intro-exit {
+    animation: doom-intro-leave 0.01ms forwards;
+  }
+}

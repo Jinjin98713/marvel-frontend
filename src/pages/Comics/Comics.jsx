@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import axios from "axios";
+import Pagination from "../../components/Pagination/Pagination";
+import formatMarvelDescription from "../../utils/formatMarvelDescription";
 import "./Comics.css";
 
 const Comics = () => {
@@ -95,7 +97,11 @@ const Comics = () => {
 
     // Pour ce premier test, les favoris sont liés au compte.
     if (!token) {
-      navigate("/login");
+      navigate("/login", {
+        state: {
+          fromFavorite: true,
+        },
+      });
       return;
     }
 
@@ -236,11 +242,7 @@ const Comics = () => {
                   <div className="comic-infos">
                     <h2>{comic.title}</h2>
 
-                    {comic.description ? (
-                      <p>{comic.description}</p>
-                    ) : (
-                      <p>Aucune description disponible</p>
-                    )}
+                    <p>{formatMarvelDescription(comic.description)}</p>
                   </div>
                 </article>
               );
@@ -250,22 +252,7 @@ const Comics = () => {
 
         {/* Pagination */}
         {!isLoading && totalPages > 1 && (
-          <div className="pagination">
-            <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-              Précédent
-            </button>
-
-            <span>
-              Page {page} sur {totalPages}
-            </span>
-
-            <button
-              onClick={() => setPage(page + 1)}
-              disabled={page === totalPages}
-            >
-              Suivant
-            </button>
-          </div>
+          <Pagination page={page} totalPages={totalPages} setPage={setPage} />
         )}
       </section>
     </main>

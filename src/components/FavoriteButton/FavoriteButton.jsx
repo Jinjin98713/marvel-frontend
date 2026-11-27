@@ -53,7 +53,11 @@ const FavoriteButton = ({ itemId, itemType, title, image }) => {
 
     // Pour ce premier test, les favoris sont liés au compte.
     if (!token) {
-      navigate("/login");
+      navigate("/login", {
+        state: {
+          fromFavorite: true,
+        },
+      });
       return;
     }
 

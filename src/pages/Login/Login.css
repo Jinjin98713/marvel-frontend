@@ -99,3 +99,52 @@
   color: #ed1d24;
   font-weight: bold;
 }
+
+.login-favorite-message {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background-color: #251619;
+  border: 1px solid #7b242d;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ==================================
+   ANIMATION CONNEXION
+================================== */
+
+.login-button-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.login-spinner {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: login-spin 0.7s linear infinite;
+}
+
+@keyframes login-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-spinner {
+    animation: none;
+  }
+}

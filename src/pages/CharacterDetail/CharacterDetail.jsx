@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./CharacterDetail.css";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
+import formatMarvelDescription from "../../utils/formatMarvelDescription";
 
 const CharacterDetail = () => {
   const { characterId } = useParams();
@@ -117,16 +118,14 @@ const CharacterDetail = () => {
                 <article className="character-detail-comic" key={comic._id}>
                   {comic.thumbnail && (
                     <img
-                      src={`${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`}
+                      src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`}
                       alt={comic.title}
                       loading="lazy"
                     />
                   )}
                   <div className="character-detail-comic-info">
                     <h3>{comic.title}</h3>
-                    <p>
-                      {comic.description || "Aucune description disponible"}
-                    </p>
+                    <p>{formatMarvelDescription(comic.description)}</p>
                   </div>
                 </article>
               ))}

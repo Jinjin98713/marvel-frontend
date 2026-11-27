@@ -1,0 +1,446 @@
+/* ==================================
+   HOME - COMMUN
+================================== */
+.home-page {
+  min-height: max(730px, calc(100dvh - 90px));
+  background: #090a0d;
+  color: #fff;
+}
+/* La Home publique laisse DoomLanding gérer sa hauteur */
+.home-public {
+  min-height: 0;
+}
+.home-loading {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #090a0d;
+  color: #fff;
+}
+.home-loading svg {
+  color: #ed1d24;
+  font-size: 60px;
+}
+.home-loading p {
+  color: #a9abb3;
+  font-size: 14px;
+}
+
+/* ==================================
+   HOME CONNECTÉE (conservée)
+================================== */
+.home-member-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 35px;
+}
+.home-member-hero {
+  padding: 85px 0;
+  background:
+    radial-gradient(
+      ellipse at 80% 40%,
+      rgba(237, 29, 36, 0.13),
+      transparent 55%
+    ),
+    #101015;
+}
+.home-member-hero .home-member-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 70px;
+  align-items: center;
+}
+.home-member-label {
+  margin: 0 0 20px;
+  color: #ed1d24;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+.home-member-intro h1 {
+  margin: 0 0 25px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(60px, 7vw, 110px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.94;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.home-member-intro h1 span {
+  display: block;
+  color: #ed1d24;
+}
+.home-member-description {
+  max-width: 540px;
+  margin: 0 0 30px;
+  color: #bfc0c8;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.home-member-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.home-member-button-primary,
+.home-member-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 14px 22px;
+  border-radius: 7px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.home-member-button-primary {
+  background: #ed1d24;
+  border: 1px solid #ed1d24;
+}
+.home-member-button-primary:hover {
+  background: #b9151b;
+}
+.home-member-button-secondary {
+  background: rgba(15, 20, 17, 0.85);
+  border: 1px solid #53775d;
+}
+.home-member-button-secondary:hover {
+  background: #1b3222;
+}
+.home-member-hero-card {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background: #191a20;
+  border: 1px solid #683038;
+  border-radius: 12px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+}
+.home-member-hero-card > img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 25%;
+  mask-image: linear-gradient(black 50%, transparent 98%);
+}
+.home-member-hero-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(transparent, #15161a 45%);
+}
+.home-member-hero-info p {
+  margin: 0 0 8px;
+  color: #ed1d24;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.home-member-hero-info h2 {
+  margin: 0 0 15px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 45px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.home-member-hero-info a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+.home-member-no-hero {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #a9abb3;
+}
+.home-member-no-hero svg {
+  color: #ed1d24;
+  font-size: 75px;
+}
+.home-member-comics {
+  padding: 85px 0;
+  background: #090a0d;
+}
+.home-member-section-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+.home-member-section-title h2,
+.home-member-explore h2 {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(35px, 5vw, 60px);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.home-member-section-title > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ed1d24;
+  font-size: 13px;
+  font-weight: 700;
+}
+.home-member-comics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+.home-member-comic-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #15161a;
+  border: 1px solid #303036;
+  border-radius: 10px;
+}
+.home-member-comic-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+.home-member-comic-info {
+  padding: 17px;
+}
+.home-member-comic-info h3 {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.home-member-empty {
+  color: #a9abb3;
+  font-size: 14px;
+}
+.home-member-explore {
+  padding: 35px 0 110px;
+  background: #090a0d;
+}
+.home-member-explore h2 {
+  margin-bottom: 35px;
+}
+.home-member-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.home-member-links a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 120px;
+  padding: 25px;
+  background: #15161a;
+  border: 1px solid #303036;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+.home-member-links a:hover {
+  border-color: #ed1d24;
+  transform: translateY(-4px);
+}
+.home-member-links a > svg:first-child {
+  color: #ed1d24;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.home-member-links a span {
+  flex: 1;
+}
+@media (max-width: 767px) {
+  .home-member-container {
+    padding: 0 20px;
+  }
+  .home-member-hero {
+    padding: 55px 0;
+  }
+  .home-member-hero .home-member-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .home-member-hero-card {
+    max-width: 500px;
+  }
+  .home-member-comics {
+    padding: 60px 0;
+  }
+  .home-member-comics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .home-member-explore {
+    padding-bottom: 70px;
+  }
+  .home-member-links {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .home-member-intro h1 {
+    font-size: clamp(52px, 12vw, 75px);
+  }
+  .home-member-actions {
+    flex-direction: column;
+  }
+  .home-member-button-primary,
+  .home-member-button-secondary {
+    width: 100%;
+  }
+  .home-member-hero-card > img {
+    height: 400px;
+  }
+  .home-member-comic-info h3 {
+    font-size: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-member-links a {
+    transition: none;
+  }
+  .home-member-links a:hover {
+    transform: none;
+  }
+}
+
+/* ==================================
+   THÈME SPIDER-MAN - HOME CONNECTÉE
+================================== */
+
+.home-theme-spiderman {
+  --spider-red: #e51d2a;
+  --spider-blue: #287ac8;
+  --spider-light-blue: #65b8ff;
+}
+
+/* Ambiance de la bannière */
+
+.home-theme-spiderman .home-member-hero {
+  background:
+    radial-gradient(
+      ellipse at 82% 35%,
+      rgba(40, 122, 200, 0.26),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 12% 75%,
+      rgba(229, 29, 42, 0.19),
+      transparent 50%
+    ),
+    #0c101a;
+}
+
+/* Identité de la recrue */
+
+.home-theme-spiderman .home-member-label {
+  color: var(--spider-light-blue);
+}
+
+.home-theme-spiderman .home-member-intro h1 span {
+  color: var(--spider-red);
+  text-shadow: 0 0 45px rgba(229, 29, 42, 0.2);
+}
+
+/* Boutons */
+
+.home-theme-spiderman .home-member-button-primary {
+  background: var(--spider-red);
+  border-color: var(--spider-red);
+}
+
+.home-theme-spiderman .home-member-button-primary:hover {
+  background: #b91524;
+}
+
+.home-theme-spiderman .home-member-button-secondary {
+  background: rgba(25, 60, 110, 0.3);
+  border-color: var(--spider-blue);
+}
+
+.home-theme-spiderman .home-member-button-secondary:hover {
+  background: rgba(40, 122, 200, 0.25);
+}
+
+/* Carte du héros préféré */
+
+.home-theme-spiderman .home-member-hero-card {
+  background: #111827;
+  border-color: var(--spider-blue);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(40, 122, 200, 0.15);
+}
+
+.home-theme-spiderman .home-member-hero-info {
+  background: linear-gradient(transparent, #0c1424 45%);
+}
+
+.home-theme-spiderman .home-member-hero-info p {
+  color: var(--spider-light-blue);
+}
+
+.home-theme-spiderman .home-member-hero-info a:hover {
+  color: var(--spider-light-blue);
+}
+
+/* Section comics */
+
+.home-theme-spiderman .home-member-comics {
+  background: #090d15;
+}
+
+.home-theme-spiderman .home-member-section-title > a {
+  color: var(--spider-light-blue);
+}
+
+.home-theme-spiderman .home-member-comic-card {
+  background: #141924;
+  border-color: #29364b;
+}
+
+/* Section navigation */
+
+.home-theme-spiderman .home-member-explore {
+  background: #090d15;
+}
+
+.home-theme-spiderman .home-member-links a {
+  background: #141924;
+  border-color: #29364b;
+}
+
+.home-theme-spiderman .home-member-links a:hover {
+  border-color: var(--spider-blue);
+}
+
+.home-theme-spiderman .home-member-links a > svg:first-child {
+  color: var(--spider-red);
+}

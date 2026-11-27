@@ -8,16 +8,15 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Account from "./pages/Account/Account";
 import Favorites from "./pages/Favorites/Favorites";
+import Home from "./pages/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={<h1>Accueil personnalisé — Marvel: My Universe</h1>}
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/personnages" element={<Characters />} />
         <Route path="/personnage/:characterId" element={<CharacterDetail />} />
         <Route path="/comics" element={<Comics />} />
@@ -26,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+      <Footer />
     </>
   );
 }

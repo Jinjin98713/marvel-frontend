@@ -1,0 +1,325 @@
+/* Les styles Doom sont isolés : aucune règle globale sur h1, body ou footer. */
+.doom-landing {
+  position: relative;
+  isolation: isolate;
+  min-height: max(730px, calc(100dvh - 90px));
+  overflow: hidden;
+  background: #020504;
+  color: #fff;
+  touch-action: pan-y;
+}
+
+.doom-landing-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(33, 101, 52, 0.16),
+    transparent 49%
+  );
+}
+
+.doom-landing-portrait {
+  --mouse-x: 38%;
+  --mouse-y: 49%;
+  --reveal-opacity: 0;
+  --reveal-radius: 220px;
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 75%;
+  pointer-events: none;
+}
+
+.doom-landing-portrait-shadow,
+.doom-landing-portrait-reveal {
+  position: absolute;
+  inset: 0;
+  background: url("/images/avengers-doomsday-bande-annonce-finale-doctor-doom.webp")
+    center 28% / cover no-repeat;
+}
+
+.doom-landing-portrait-shadow {
+  opacity: 0.13;
+  filter: brightness(0.3) saturate(0.55);
+}
+
+.doom-landing-portrait-reveal {
+  opacity: var(--reveal-opacity);
+  filter: brightness(0.92) saturate(0.66) contrast(1.16);
+  transition: opacity 0.65s ease;
+  -webkit-mask-image: radial-gradient(
+    circle var(--reveal-radius) at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    rgba(0, 0, 0, 0.92) 25%,
+    rgba(0, 0, 0, 0.53) 60%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--reveal-radius) at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    rgba(0, 0, 0, 0.92) 25%,
+    rgba(0, 0, 0, 0.53) 60%,
+    transparent 100%
+  );
+}
+
+.doom-landing-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 5, 4, 0.16) 0%,
+      transparent 35%,
+      #020504 95%
+    ),
+    linear-gradient(
+      0deg,
+      #020504 0%,
+      transparent 18%,
+      transparent 80%,
+      rgba(2, 5, 4, 0.7) 100%
+    );
+}
+
+.doom-landing .smoke-canvas {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
+.doom-landing-inner {
+  position: relative;
+  z-index: 4;
+  pointer-events: none;
+  width: min(1360px, 100%);
+  min-height: max(730px, calc(100dvh - 90px));
+  margin: 0 auto;
+  padding: 55px clamp(24px, 5vw, 75px) 95px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: center;
+}
+
+.doom-landing-side-note {
+  align-self: end;
+  color: #61826c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.doom-landing-content {
+  pointer-events: auto;
+  max-width: 600px;
+  padding: 30px 0;
+}
+
+.doom-landing-eyebrow {
+  margin: 0;
+  color: #94efab;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.doom-landing-overline {
+  margin: 25px 0;
+  color: #82988a;
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.doom-landing-content h1,
+.doom-landing-content h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.doom-landing-content h1 {
+  margin: 0 0 30px;
+  font-size: clamp(72px, 9vw, 150px);
+  line-height: 0.83;
+}
+
+.doom-landing-content h1 span {
+  display: block;
+  color: #93e8a7;
+  text-shadow: 0 0 50px rgba(37, 156, 76, 0.26);
+}
+
+.doom-landing-content h2 {
+  margin: 0 0 17px;
+  font-size: clamp(28px, 3vw, 46px);
+  line-height: 1.08;
+}
+
+.doom-landing-description {
+  max-width: 485px;
+  margin: 0 0 30px;
+  color: #a9b9ae;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.doom-landing-description strong {
+  color: #c1e7c9;
+}
+
+.doom-landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.doom-landing-primary,
+.doom-landing-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 14px 19px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.doom-landing-primary {
+  background: #ed1d24;
+  color: #fff;
+}
+.doom-landing-primary:hover {
+  background: #b9151b;
+}
+.doom-landing-primary span {
+  font-size: 19px;
+}
+.doom-landing-secondary {
+  background: rgba(15, 25, 18, 0.75);
+  border: 1px solid #416249;
+  color: #fff;
+}
+.doom-landing-secondary:hover {
+  background: #1b3222;
+}
+.doom-landing-login {
+  margin: 19px 0 0;
+  color: #819588;
+  font-size: 12px;
+}
+.doom-landing-login a {
+  color: #94efab;
+  font-weight: 700;
+}
+
+.doom-landing-bottom {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px clamp(25px, 5vw, 80px);
+  border-top: 1px solid #1a2e20;
+  color: #799783;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .doom-landing-portrait {
+    width: 85%;
+  }
+  .doom-landing-inner {
+    grid-template-columns: 0.75fr 1.25fr;
+  }
+  .doom-landing-content h1 {
+    font-size: clamp(70px, 10vw, 110px);
+  }
+}
+
+@media (max-width: 720px) {
+  .doom-landing,
+  .doom-landing-inner {
+    min-height: 800px;
+  }
+  .doom-landing-portrait {
+    width: 100%;
+    height: 67%;
+  }
+  .doom-landing-portrait-shadow,
+  .doom-landing-portrait-reveal {
+    background-position: center 22%;
+  }
+  .doom-landing-portrait-reveal {
+    opacity: 0.7;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .doom-landing-vignette {
+    background:
+      linear-gradient(0deg, #020504 0%, #020504 5%, transparent 75%),
+      linear-gradient(90deg, rgba(2, 5, 4, 0.3), rgba(2, 5, 4, 0.1));
+  }
+  .doom-landing-inner {
+    padding: 50px 24px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+  }
+  .doom-landing-side-note {
+    align-self: flex-start;
+    margin-bottom: auto;
+  }
+  .doom-landing-content {
+    padding: 24px 0;
+  }
+  .doom-landing-content h1 {
+    font-size: clamp(74px, 18vw, 112px);
+  }
+  .doom-landing-description {
+    font-size: 13px;
+  }
+  .doom-landing-bottom {
+    font-size: 8px;
+    padding: 16px 20px;
+  }
+  .doom-landing-bottom span:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .doom-landing-actions {
+    flex-direction: column;
+  }
+  .doom-landing-content h1 {
+    font-size: clamp(64px, 17vw, 80px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doom-landing-portrait-reveal {
+    opacity: 0.76;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .doom-landing-portrait-reveal {
+    transition: none;
+  }
+}

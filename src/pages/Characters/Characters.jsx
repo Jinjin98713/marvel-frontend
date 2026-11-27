@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import Pagination from "../../components/Pagination/Pagination";
 import "./Characters.css";
 
 const Characters = () => {
@@ -123,7 +124,11 @@ const Characters = () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/login");
+      navigate("/login", {
+        state: {
+          fromFavorite: true,
+        },
+      });
       return;
     }
 
@@ -278,20 +283,7 @@ const Characters = () => {
 
         {/* Pagination */}
         {!isLoading && totalPages > 1 && (
-          <div className="pagination">
-            <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-              Précédent
-            </button>
-            <span>
-              Page {page} sur {totalPages}
-            </span>
-            <button
-              onClick={() => setPage(page + 1)}
-              disabled={page === totalPages}
-            >
-              Suivant
-            </button>
-          </div>
+          <Pagination page={page} totalPages={totalPages} setPage={setPage} />
         )}
       </section>
 

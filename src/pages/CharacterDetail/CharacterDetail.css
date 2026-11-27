@@ -165,6 +165,12 @@
   color: #a9abb3;
   font-size: 13px;
   line-height: 1.6;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 .character-detail-empty {
   color: #a9abb3;

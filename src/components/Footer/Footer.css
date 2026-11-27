@@ -1,0 +1,68 @@
+/* ==================================
+   FOOTER - MARVEL : MY UNIVERSE
+================================== */
+
+.site-footer {
+  width: 100%;
+  padding: 28px 20px;
+  background-color: #0c0d10;
+  border-top: 1px solid #303036;
+  color: #a9abb3;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand img {
+  display: block;
+  width: 75px;
+}
+
+.footer-brand span {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.footer-credit,
+.footer-copyright {
+  margin: 0;
+  font-size: 12px;
+}
+
+.footer-credit strong {
+  color: #ffffff;
+}
+
+.footer-copyright {
+  color: #777984;
+}
+
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-brand {
+    justify-content: center;
+  }
+}
