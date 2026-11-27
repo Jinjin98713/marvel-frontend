@@ -1,0 +1,129 @@
+/* ==================================
+   HEADER - MOBILE FIRST
+================================== */
+
+.site-header {
+  background-color: #0c0d10;
+  border-bottom: 1px solid #292b31;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo img {
+  width: 115px;
+  display: block;
+}
+
+.header-logo span {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.header-nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.header-link {
+  min-height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 2px;
+  color: #c5c6cb;
+  font-size: 11px;
+  text-align: center;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.header-link svg {
+  font-size: 19px;
+}
+
+.header-link:hover {
+  color: #ffffff;
+  background-color: #211619;
+}
+
+/* Navigation active */
+
+.header-link.active {
+  color: #ffffff;
+  background-color: transparent;
+  border-bottom: 2px solid #ed1d24;
+}
+
+.header-link.active svg {
+  color: #ed1d24;
+}
+
+.header-link:focus-visible {
+  outline: 2px solid #ed1d24;
+  outline-offset: 2px;
+}
+
+/* TABLETTE - 768px et plus */
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 18px 30px;
+  }
+
+  .header-nav {
+    width: auto;
+    display: flex;
+    gap: 25px;
+  }
+
+  .header-link {
+    min-height: auto;
+    flex-direction: row;
+    font-size: 13px;
+  }
+
+  .header-link svg {
+    font-size: 17px;
+  }
+}
+
+/* DESKTOP - 1100px et plus */
+@media (min-width: 1100px) {
+  .header-container {
+    padding: 20px 45px;
+  }
+
+  .header-nav {
+    gap: 35px;
+  }
+}
+
+/* REDUCTION DES ANIMATIONS */
+@media (prefers-reduced-motion: reduce) {
+  .header-link {
+    transition: none;
+  }
+}
